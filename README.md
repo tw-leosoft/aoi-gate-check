@@ -46,7 +46,7 @@ no license codes. All 46 cases come from already-measured tables
   impostors are blocked is the 11-case real run (dotnet test 11/11) and
   the 220-case matrix real run, not this program.
 - **Not product source code**: it does not copy `GeometricLocate.cs` or
-  `GeometricPattern.cs`, and it was not pasted from `~/workspace/sdk/aoi/`;
+  `GeometricPattern.cs`, and it was not pasted from the product source;
   it only rewrites the few threshold rules above.
 
 ## Files to be published (local-only, not yet public)

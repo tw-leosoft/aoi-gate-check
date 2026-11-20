@@ -1,5 +1,5 @@
 gate_check.py — AOI support-block gate arithmetic re-check
-cases file: /home/hatch/workspace/backups/aoi-negfix/public-gate-check/cases.json  (46 cases)
+cases file: cases.json  (46 cases)
 informative-rule self-test: 7/7 synthetic checks passed (synthetic inputs, not measurements)
 
 == stage-b  (loc 0.80, out blocks counted) ==
