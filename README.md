@@ -1,133 +1,177 @@
-# AOI 支持區塊門檻 — 獨立驗算程式（public-gate-check）
+# AOI Supported-Block Threshold — Independent Gate Check (public-gate-check)
 
-> 英文版見 `README_EN.md`（English version: see `README_EN.md`）。
-> 兩版內容逐節對照；若有出入，以 run log 與
-> `calibration-a/NOTES.md` / `calibration-b/NOTES.md` 的數字為準。
+> Chinese version: see `README_ZH.md` （中文版見 `README_ZH.md`）.
+> This English version mirrors the Chinese `README_ZH.md` section by section.
+> If the two ever disagree, the numbers in the run logs and in
+> `calibration-a/NOTES.md` / `calibration-b/NOTES.md` are authoritative.
 
-## 這是什麼
+## What this is
 
-一支只驗「門檻算式」的小程式。它把 AOI stage-b 支持區塊門檻邏輯抽出來，
-用 Python 標準庫重寫，對先前量測過的逐區塊支持數重跑四條規則的判定：
+A small program that checks only the "threshold arithmetic". It extracts the
+AOI stage-b supported-block threshold logic, rewrites it in Python using only
+the standard library, and re-runs the accept/reject decision of four rules
+against previously measured per-block support counts:
 
-- **stage-b**：localized ≥ 0.80，出界區塊計入 informative，100% 才通過。
-- **變體 A**：localized ≥ 0.80，出界區塊不計入 informative，100% 才通過。
-- **變體 B**：localized ≥ 0.70，出界區塊計入 informative，100% 才通過。
-- **變體 C（附帶）**：dense ≥ 0.80，出界區塊計入 informative，100% 才通過。
+- **stage-b**: localized >= 0.80, out-of-bounds blocks count toward
+  `informative`, 100% support required to pass.
+- **Variant A**: localized >= 0.80, out-of-bounds blocks do NOT count toward
+  `informative`, 100% support required to pass.
+- **Variant B**: localized >= 0.70, out-of-bounds blocks count toward
+  `informative`, 100% support required to pass.
+- **Variant C (included)**: dense >= 0.80, out-of-bounds blocks count toward
+  `informative`, 100% support required to pass.
 
-門檻規則（按校準報告的文字重寫，不是複製產品原始碼）：
+Threshold rules (rewritten from the wording of the calibration report,
+not copied from the product source code):
 
-- informative 判定：`ref_count >= 12` 且 `variance >= 25 * ref_count`。
-- stage-b 順序：informative++ 在出界檢查之前 → 出界區塊仍算 informative，
-  且其相關性以 0 計入，永遠不算支持。
-- 變體 A 順序：informative++ 在出界檢查之後 → 出界區塊完全不算 informative。
-- 閘門：`supportedBlocks < informative` 即拒絕（100% 計數要求）。
+- Informative decision: `ref_count >= 12` and `variance >= 25 * ref_count`.
+- stage-b order: `informative++` happens BEFORE the out-of-bounds check, so
+  an out-of-bounds block still counts as informative, and its correlation is
+  counted as 0, so it can never count as supported.
+- Variant A order: `informative++` happens AFTER the out-of-bounds check,
+  so an out-of-bounds block does not count as informative at all.
+- Gate: `supportedBlocks < informative` means reject (the 100% count
+  requirement).
 
-數據只有數字，沒有圖片、沒有原始碼、沒有權重、沒有授權碼。
-46 案全部來自已量測的表格（見 `cases.json` 內每筆的 `source` 欄位）。
+The data contains only numbers: no images, no source code, no weights,
+no license codes. All 46 cases come from already-measured tables
+(see the `source` field of each entry in `cases.json`).
 
-## 這不是什麼
+## What this is not
 
-- **不是定位程式**：它不搜尋、不算相關性、不讀圖片。它只對現成的支持數做算術。
-- **不證明定位真的擋得住冒名**：冒名阻擋的證據是 11 案實跑（dotnet test 11/11）
-  與 220 案矩陣實跑，不是這支程式。
-- **不是產品原始碼**：沒有複製 `GeometricLocate.cs`、`GeometricPattern.cs`，
-  也沒有讀 `~/workspace/sdk/aoi/` 來複製貼上；只有上面幾行門檻規則的重寫。
+- **Not a locator**: it does not search, does not compute correlations,
+  does not read images. It only does arithmetic on support counts that
+  already exist.
+- **Does not prove the locator really blocks impostors**: the evidence that
+  impostors are blocked is the 11-case real run (dotnet test 11/11) and
+  the 220-case matrix real run, not this program.
+- **Not product source code**: it does not copy `GeometricLocate.cs` or
+  `GeometricPattern.cs`, and it was not pasted from `~/workspace/sdk/aoi/`;
+  it only rewrites the few threshold rules above.
 
-## 將公開的檔案清單（本地-only，目前尚未公開）
+## Files to be published (local-only, not yet public)
 
-| 檔案 | 行數 | 內容 |
+| File | Lines | Contents |
 |---|---|---|
-| `gate_check.py` | 282 | 驗算程式（Python 標準庫 only） |
-| `cases.json` | 1157 | 46 案合成數字數據（每筆註明來源） |
-| `README.md` | 133 | 本文件（中文版） |
-| `README_EN.md` | 177 | 英文版文件 |
-| `run.log` | 282 | 本地實跑輸出 |
-| **合計** | **2031 行** | 其中程式本體僅 282 行 |
+| `gate_check.py` | 282 | Check program (Python standard library only) |
+| `cases.json` | 1157 | 46 cases of synthetic numeric data (source noted per case) |
+| `README.md` | 133 | Chinese version of this document |
+| `README.md` | 177 | This file (English version) |
+| `run.log` | 282 | Local run output |
+| **Total** | **2031 lines** | Program itself is only 282 lines |
 
-公開範圍就是這四個檔案，沒有別的東西。沒有 SDK 原始碼、沒有測試圖片、
-沒有模型權重、沒有授權相關內容。
+The public scope is exactly these five files, nothing else. No SDK source
+code, no test images, no model weights, no license-related content.
 
-## 怎麼跑
+## How to run
 
 ```sh
-python3 gate_check.py            # 預設讀同目錄的 cases.json
-python3 gate_check.py cases.json # 或指定數據檔
+python3 gate_check.py            # reads cases.json in the same directory by default
+python3 gate_check.py cases.json # or specify a data file
 ```
 
-exit code 0 表示程式跑完（不是表示門檻通過）。輸出含逐案判定表、
-四條規則的匯總、預測與實跑對照、已知落差說明。
+Exit code 0 means the program finished (not that the threshold passed).
+The output contains a per-case decision table, a summary of the four rules,
+a predicted-vs-real-run comparison, and notes on known discrepancies.
 
-## 本地驗算結果（代理指標）vs 實跑結果
+## Local check results (proxy metric) vs real-run results
 
-「預測」是本程式對 step1「最接近真值評估」做的判定；
-「實跑」是 calibration-a / calibration-b 的 11 案 dotnet test＋220 案矩陣。
-step1 是單一姿態的代理指標，不是搜尋實際接受／拒絕的候選，
-有落差時以實跑為準。
+"Predicted" is this program's decision on the step-1 "nearest-to-truth
+evaluation"; "real run" is the calibration-a / calibration-b 11-case
+dotnet test plus the 220-case matrix. Step 1 is a single-pose proxy metric,
+not the candidate the search actually accepts or rejects; when they
+disagree, the real run wins.
 
-| 規則 | 預測誤殺（25 案） | 預測救回 | 實跑誤殺 | 實跑救回 | 11 案實跑 |
+| Rule | Predicted false kills (of 25) | Predicted rescued | Real-run false kills | Real-run rescued | 11-case real run |
 |---|---|---|---|---|---|
-| stage-b（0.80，出界計入） | 25 | 0 | 25（195/220） | 0 | 11/11 |
-| 變體 A（0.80，出界不計） | 22 | 3 | 21（199/220） | 4 | 11/11 |
-| 變體 B（0.70，出界計入） | 24 | 1 | 20（200/220） | 5 | 11/11 |
-| 變體 C（dense 0.80） | 24 | 1 | —（calibration-c 仍在跑） | — | — |
+| stage-b (0.80, out-of-bounds counted) | 25 | 0 | 25 (195/220) | 0 | 11/11 |
+| Variant A (0.80, out-of-bounds excluded) | 22 | 3 | 21 (199/220) | 4 | 11/11 |
+| Variant B (0.70, out-of-bounds counted) | 24 | 1 | 20 (200/220) | 5 | 11/11 |
+| Variant C (dense 0.80) | 24 | 1 | — (calibration-c still running) | — | — |
 
-其他預測數字：
+Other predicted numbers:
 
-- 13 抽樣通過案：四條規則下預測皆 12/13 通過（見落差第 3 點）。
-- WrongTarget 3 案：stage-b／A／B 下預測皆 3/3 拒絕（12/13 支持，最差區塊
-  0.597／0.583／0.596，皆低於 0.70）；dense 無量測，變體 C 為 UNKNOWN。
-- 紋理冒名 4 案＋contradictory 1 案：loc 規則下皆 UNKNOWN（無量測數據）；
-  dense 0.80 下 5/5 拒絕（支持數 2／4／0／4／4，連較寬鬆的 stage-a2
-  門檻 9/16 都不到）。
+- 13 sampled passing cases: predicted 12/13 pass under all four rules
+  (see mismatch point 3).
+- WrongTarget, 3 cases: predicted 3/3 rejected under stage-b / A / B
+  (12/13 supported, worst block 0.597 / 0.583 / 0.596, all below 0.70);
+  dense was not measured, so variant C is UNKNOWN.
+- Textured impostors, 4 cases, plus contradictory, 1 case: UNKNOWN under
+  the loc rules (no measured data); under dense 0.80, 5/5 rejected
+  (support counts 2 / 4 / 0 / 4 / 4, below even the looser stage-a2
+  threshold of 9/16).
 
-## 對不上的地方（誠實列出，不硬湊）
+## Mismatches (listed honestly, not forced to agree)
 
-1. **變體 A：預測救 3，實跑救 4。**多出的是 `pcb/translation-50`。
-   代理量測的最接近完整評估角度誤差 1.05°、最差完全可見區塊 0.574
-   （9/10 支持）；變體 A 實跑接受姿態（`calibration-a/matrix/poses.csv`）
-   距真值僅 0.08 px／0.04°。代理只取樣一個偏 1° 的姿態，搜尋找到更近的
-   姿態，該區塊就過了 0.80。單姿態代理 vs 多姿態搜尋。
-2. **變體 B：預測救 1，實跑救 5。**多出 `pcb/noise-15`、`metal/noise-15`、
-   `metal/noise-30`、`metal/occlusion-0.1`（代理最差區塊 0.496–0.680，
-   0.70 支持數 13–14/15）。其實跑接受姿態
-   （`calibration-b/matrix/poses.csv`）距真值 0.13–0.64 px／0.04–0.79°，
-   與代理姿態是同一鄰域，最差區塊卻在該處過了 0.70。最差區塊的局部相關性
-   對次像素／次角度變化非常敏感（0.1–0.2 以上的擺動）；代理取樣一個姿態，
-   搜尋試數百個姿態、任一通過即接受，所以代理系統性低估救回數。
-   擺動最大的是 `metal/noise-30`（0.496 → ≥0.70）；是哪個姿態細節翻轉了它，
-   現有數據沒有記錄，要接受姿態的逐區塊值才說得清，本程式不猜。
-3. **通過案 `metal/scale-0.7`：代理在四條規則下都判拒絕**（14/15，最差區塊
-   0.133），但 stage-b／A／B 實跑都通過它（三份誤殺清單都沒有它）。
-   step1 已註明：鄰近前 5 個評估中有 15/15 的姿態，是代理取樣造成的假象，
-   不是真的退步。
-4. **紋理冒名在 0.70 下的阻擋，本程式驗不出來。**只有 0.80 下的支持數，
-   沒有 0.70 下的逐區塊值，程式對變體 B 一律報 UNKNOWN。
-   0.70 擋得住紋理冒名的證據是變體 B 的 11 案實跑（11/11），不是這支程式。
-5. **`metal/occlusion-0.4` 的拒絕主因不是支持數。**step1 註明該案 377 個
-   近真值評估中有 376 個在矛盾 early-return 中途離開。本程式只建模
-   支持數閘門，不建模矛盾閘門。
+1. **Variant A: predicted 3 rescued, real run rescued 4.** The extra one is
+   `pcb/translation-50`. The proxy measurement's nearest full evaluation
+   had an angle error of 1.05° and a worst fully-visible block of 0.574
+   (9/10 supported); the pose variant A actually accepted in the real run
+   (`calibration-a/matrix/poses.csv`) is only 0.08 px / 0.04° from the
+   truth. The proxy sampled a single pose 1° off; the search found a
+   closer pose, and that block then passed 0.80. Single-pose proxy
+   vs multi-pose search.
+2. **Variant B: predicted 1 rescued, real run rescued 5.** The extra four
+   are `pcb/noise-15`, `metal/noise-15`, `metal/noise-30`, and
+   `metal/occlusion-0.1` (proxy worst block 0.496–0.680, 0.70 support
+   13–14/15). The poses actually accepted in the real run
+   (`calibration-b/matrix/poses.csv`) are 0.13–0.64 px / 0.04–0.79° from
+   the truth, in the same neighborhood as the proxy pose, yet the worst
+   block passed 0.70 there. The worst block's localized correlation is
+   very sensitive to sub-pixel / sub-degree changes (swings of 0.1–0.2 or
+   more); the proxy samples one pose, the search tries hundreds of poses
+   and accepts if any one passes, so the proxy systematically
+   underestimates the rescue count. The biggest swing is
+   `metal/noise-30` (0.496 → ≥0.70); which pose detail flipped it is not
+   recorded in the current data — it would need the accepted pose's
+   per-block values to say, and this program does not guess.
+3. **Passing case `metal/scale-0.7`: the proxy rejects it under all four
+   rules** (14/15, worst block 0.133), but the stage-b / A / B real runs
+   all pass it (it appears in none of the three false-kill lists).
+   Step 1 already noted: among the nearest 5 evaluations there was a 15/15
+   pose, so this is a proxy-sampling artifact, not a real regression.
+4. **Whether textured impostors are blocked at 0.70 cannot be checked by
+   this program.** Only 0.80 support counts exist; there are no per-block
+   values at 0.70, so the program reports UNKNOWN for variant B. The
+   evidence that 0.70 still blocks textured impostors is variant B's
+   11-case real run (11/11), not this program.
+5. **`metal/occlusion-0.4` was rejected mainly for a different reason than
+   support count.** Step 1 noted that 376 of 377 near-truth evaluations
+   left early through the contradiction early-return. This program only
+   models the support-count gate, not the contradiction gate.
 
-## 本程式不能驗證的事項
+## What this program cannot verify
 
-- 閘門在真實搜尋中是否擋得住冒名（要 11 案／矩陣實跑）。
-- 任何門檻對未見過的目標是否安全（樣本只有 25＋13＋3＋5 案）。
-- 完整 220 案矩陣（本程式只有其中 38 案的代理量測＋8 案冒名摘要）。
-- 矛盾閘門、blurred 救援路徑、dense／localized 相關性本身的計算。
-- 速度、授權、建置、CI。
+- Whether the gate blocks impostors in a real search (needs the 11-case /
+  matrix real runs).
+- Whether any threshold is safe for targets never seen before (the sample
+  is only 25 + 13 + 3 + 5 cases).
+- The full 220-case matrix (this program has proxy measurements for only
+  38 of its cases, plus an 8-case impostor summary).
+- The contradiction gate, the blurred-rescue paths, or the dense /
+  localized correlation computation itself.
+- Speed, licensing, builds, or CI.
 
-## 數據來源與誠實標記
+## Data sources and honesty notes
 
-- 25 誤殺＋13 抽樣通過案：`calibration/calib-analysis.txt`
-  最接近真值評估（`calibration/step1-NOTES.md` 摘要）；informative 恆為
-  15／16，每模板恰 1 區塊參考變異不足。
-- WrongTarget 3 案：`REPORT.md`（12/13 支持，最差區塊值）。
-  0.80 以外閾值的支持數是嚴格推導（12/13 表示恰一區塊低於 0.80，
-  該區塊即最差區塊 0.583–0.597，低於 0.60，故各閾值支持數皆為 12），
-  不是逐區塊量測，`cases.json` 內有 `loc_support_derived` 標記。
-- 紋理冒名 4 案＋contradictory：`REPORT.md` 的 dense@0.80 支持數
-  （2／4／0／4／16；contradictory 的 4 是由「0.25 比例門檻下會通過」
-  一句推得，`cases.json` 內有註明，非直接製表）。
-- WrongTarget 的出界區塊數未量測：變體 A 判定時假設為 0，程式輸出有註明。
-- 實跑對照數字：`calibration-a/NOTES.md`（199/220、誤殺 21、救回 4）、
-  `calibration-b/NOTES.md`（200/220、誤殺 20、救回 5）、`REPORT.md`
-  （stage-b 195/220、誤殺 25）。
+- 25 false kills + 13 sampled passing cases: the nearest-to-truth
+  evaluations in `calibration/calib-analysis.txt`
+  (summarized in `calibration/step1-NOTES.md`); informative is always
+  15/16, with exactly 1 block per template having insufficient reference
+  variance.
+- WrongTarget, 3 cases: `REPORT.md` (12/13 supported, worst-block values).
+  Support counts at thresholds other than 0.80 are strictly derived
+  (12/13 means exactly one block is below 0.80, and that block is the
+  worst block at 0.583–0.597, below 0.60, so the support count is 12 at
+  every threshold), not measured per block; `cases.json` carries a
+  `loc_support_derived` marker for this.
+- Textured impostors, 4 cases, plus contradictory: the dense@0.80 support
+  counts in `REPORT.md` (2 / 4 / 0 / 4 / 16; the contradictory count of 4
+  was derived from the sentence "it would pass under a 0.25 ratio
+  threshold", noted in `cases.json`, not tabulated directly).
+- The number of out-of-bounds blocks for WrongTarget was not measured:
+  variant A's decision assumes 0, and the program output says so.
+- Real-run comparison numbers: `calibration-a/NOTES.md` (199/220,
+  21 false kills, 4 rescued), `calibration-b/NOTES.md` (200/220,
+  20 false kills, 5 rescued), `REPORT.md` (stage-b 195/220, 25 false
+  kills).
