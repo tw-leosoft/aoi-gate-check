@@ -1,0 +1,282 @@
+gate_check.py — AOI support-block gate arithmetic re-check
+cases file: /home/hatch/workspace/backups/aoi-negfix/public-gate-check/cases.json  (46 cases)
+informative-rule self-test: 7/7 synthetic checks passed (synthetic inputs, not measurements)
+
+== stage-b  (loc 0.80, out blocks counted) ==
+case                                       verdict  sup/req    note
+metal/blur-2                               REJECT   13/15      
+metal/blur-3                               REJECT   12/15      
+metal/ng-0                                 REJECT   14/15      
+metal/ng-217.3                             REJECT   14/15      
+metal/ng-7.3                               REJECT   14/15      
+metal/ng-90                                REJECT   14/15      
+metal/noise-15                             REJECT   14/15      
+metal/noise-30                             REJECT   13/15      
+metal/occlusion-0.1                        REJECT   13/15      
+metal/occlusion-0.25                       REJECT   12/15      
+metal/occlusion-0.4                        REJECT   8/15       
+metal/translation-49                       REJECT   12/15      
+metal/translation-50                       REJECT   10/15      
+pcb/blur-1                                 REJECT   11/15      
+pcb/blur-2                                 REJECT   2/15       
+pcb/blur-3                                 REJECT   0/15       
+pcb/gamma-2.5                              REJECT   14/15      
+pcb/noise-15                               REJECT   14/15      
+pcb/noise-30                               REJECT   7/15       
+pcb/occlusion-0.1                          REJECT   12/15      
+pcb/occlusion-0.25                         REJECT   11/15      
+pcb/occlusion-0.4                          REJECT   6/15       
+pcb/scale-0.7                              REJECT   14/15      
+pcb/translation-49                         REJECT   11/15      
+pcb/translation-50                         REJECT   9/15       
+metal/gamma-1.8                            PASS     15/15      
+metal/noise-5                              PASS     15/15      
+metal/rotation-127.9                       PASS     15/15      
+metal/scale-0.7                            REJECT   14/15      
+pcb/brightness-60                          PASS     15/15      
+pcb/contrast-1.5                           PASS     15/15      
+pcb/gamma-0.5                              PASS     15/15      
+pcb/large-skew-0.8-1.2--0.4                PASS     15/15      
+pcb/ng-90                                  PASS     15/15      
+pcb/noise-5                                PASS     15/15      
+pcb/rotation-0                             PASS     15/15      
+pcb/rotation-217.3                         PASS     15/15      
+pcb/scale-1.4                              PASS     15/15      
+wrong-target-0                             REJECT   12/13      assumed 0 partially-out blocks (not measured for this case)
+wrong-target-43.7                          REJECT   12/13      assumed 0 partially-out blocks (not measured for this case)
+wrong-target-223.7                         REJECT   12/13      assumed 0 partially-out blocks (not measured for this case)
+textured-impostor-0.88-1.12--0.12          UNKNOWN  -          informative count not measured for this case
+textured-impostor-1.12-0.88-0.12           UNKNOWN  -          informative count not measured for this case
+textured-impostor-0.8-1.2--0.4             UNKNOWN  -          informative count not measured for this case
+textured-impostor-1.2-0.8-0.4              UNKNOWN  -          informative count not measured for this case
+contradictory-texture-retries              UNKNOWN  -          informative count not measured for this case
+
+== variant A (loc 0.80, out blocks NOT counted) ==
+case                                       verdict  sup/req    note
+metal/blur-2                               REJECT   13/15      
+metal/blur-3                               REJECT   12/15      
+metal/ng-0                                 REJECT   14/15      
+metal/ng-217.3                             REJECT   14/15      
+metal/ng-7.3                               REJECT   14/15      
+metal/ng-90                                REJECT   14/15      
+metal/noise-15                             REJECT   14/15      
+metal/noise-30                             REJECT   13/15      
+metal/occlusion-0.1                        REJECT   13/15      
+metal/occlusion-0.25                       REJECT   12/15      
+metal/occlusion-0.4                        REJECT   8/15       
+metal/translation-49                       PASS     12/12      3 partially-out blocks excluded from informative (15 -> 12)
+metal/translation-50                       PASS     10/10      5 partially-out blocks excluded from informative (15 -> 10)
+pcb/blur-1                                 REJECT   11/15      
+pcb/blur-2                                 REJECT   2/15       
+pcb/blur-3                                 REJECT   0/15       
+pcb/gamma-2.5                              REJECT   14/15      
+pcb/noise-15                               REJECT   14/15      
+pcb/noise-30                               REJECT   7/15       
+pcb/occlusion-0.1                          REJECT   12/15      
+pcb/occlusion-0.25                         REJECT   11/15      
+pcb/occlusion-0.4                          REJECT   6/15       
+pcb/scale-0.7                              REJECT   14/15      
+pcb/translation-49                         PASS     11/11      4 partially-out blocks excluded from informative (15 -> 11)
+pcb/translation-50                         REJECT   9/10       5 partially-out blocks excluded from informative (15 -> 10)
+metal/gamma-1.8                            PASS     15/15      
+metal/noise-5                              PASS     15/15      
+metal/rotation-127.9                       PASS     15/15      
+metal/scale-0.7                            REJECT   14/15      
+pcb/brightness-60                          PASS     15/15      
+pcb/contrast-1.5                           PASS     15/15      
+pcb/gamma-0.5                              PASS     15/15      
+pcb/large-skew-0.8-1.2--0.4                PASS     15/15      
+pcb/ng-90                                  PASS     15/15      
+pcb/noise-5                                PASS     15/15      
+pcb/rotation-0                             PASS     15/15      
+pcb/rotation-217.3                         PASS     15/15      
+pcb/scale-1.4                              PASS     15/15      
+wrong-target-0                             REJECT   12/13      assumed 0 partially-out blocks (not measured for this case)
+wrong-target-43.7                          REJECT   12/13      assumed 0 partially-out blocks (not measured for this case)
+wrong-target-223.7                         REJECT   12/13      assumed 0 partially-out blocks (not measured for this case)
+textured-impostor-0.88-1.12--0.12          UNKNOWN  -          informative count not measured for this case
+textured-impostor-1.12-0.88-0.12           UNKNOWN  -          informative count not measured for this case
+textured-impostor-0.8-1.2--0.4             UNKNOWN  -          informative count not measured for this case
+textured-impostor-1.2-0.8-0.4              UNKNOWN  -          informative count not measured for this case
+contradictory-texture-retries              UNKNOWN  -          informative count not measured for this case
+
+== variant B (loc 0.70, out blocks counted) ==
+case                                       verdict  sup/req    note
+metal/blur-2                               REJECT   14/15      
+metal/blur-3                               REJECT   12/15      
+metal/ng-0                                 REJECT   14/15      
+metal/ng-217.3                             REJECT   14/15      
+metal/ng-7.3                               REJECT   14/15      
+metal/ng-90                                REJECT   14/15      
+metal/noise-15                             REJECT   14/15      
+metal/noise-30                             REJECT   13/15      
+metal/occlusion-0.1                        REJECT   14/15      
+metal/occlusion-0.25                       REJECT   12/15      
+metal/occlusion-0.4                        REJECT   8/15       
+metal/translation-49                       REJECT   12/15      
+metal/translation-50                       REJECT   10/15      
+pcb/blur-1                                 REJECT   14/15      
+pcb/blur-2                                 REJECT   5/15       
+pcb/blur-3                                 REJECT   1/15       
+pcb/gamma-2.5                              REJECT   14/15      
+pcb/noise-15                               REJECT   14/15      
+pcb/noise-30                               REJECT   10/15      
+pcb/occlusion-0.1                          PASS     15/15      
+pcb/occlusion-0.25                         REJECT   11/15      
+pcb/occlusion-0.4                          REJECT   7/15       
+pcb/scale-0.7                              REJECT   14/15      
+pcb/translation-49                         REJECT   11/15      
+pcb/translation-50                         REJECT   9/15       
+metal/gamma-1.8                            PASS     15/15      
+metal/noise-5                              PASS     15/15      
+metal/rotation-127.9                       PASS     15/15      
+metal/scale-0.7                            REJECT   14/15      
+pcb/brightness-60                          PASS     15/15      
+pcb/contrast-1.5                           PASS     15/15      
+pcb/gamma-0.5                              PASS     15/15      
+pcb/large-skew-0.8-1.2--0.4                PASS     15/15      
+pcb/ng-90                                  PASS     15/15      
+pcb/noise-5                                PASS     15/15      
+pcb/rotation-0                             PASS     15/15      
+pcb/rotation-217.3                         PASS     15/15      
+pcb/scale-1.4                              PASS     15/15      
+wrong-target-0                             REJECT   12/13      assumed 0 partially-out blocks (not measured for this case)
+wrong-target-43.7                          REJECT   12/13      assumed 0 partially-out blocks (not measured for this case)
+wrong-target-223.7                         REJECT   12/13      assumed 0 partially-out blocks (not measured for this case)
+textured-impostor-0.88-1.12--0.12          UNKNOWN  -          informative count not measured for this case
+textured-impostor-1.12-0.88-0.12           UNKNOWN  -          informative count not measured for this case
+textured-impostor-0.8-1.2--0.4             UNKNOWN  -          informative count not measured for this case
+textured-impostor-1.2-0.8-0.4              UNKNOWN  -          informative count not measured for this case
+contradictory-texture-retries              UNKNOWN  -          informative count not measured for this case
+
+== variant C (dense 0.80, out blocks counted) ==
+case                                       verdict  sup/req    note
+metal/blur-2                               REJECT   14/15      
+metal/blur-3                               REJECT   12/15      
+metal/ng-0                                 REJECT   14/15      
+metal/ng-217.3                             REJECT   14/15      
+metal/ng-7.3                               REJECT   14/15      
+metal/ng-90                                REJECT   14/15      
+metal/noise-15                             REJECT   14/15      
+metal/noise-30                             REJECT   14/15      
+metal/occlusion-0.1                        REJECT   12/15      
+metal/occlusion-0.25                       REJECT   12/15      
+metal/occlusion-0.4                        REJECT   8/15       
+metal/translation-49                       REJECT   12/15      
+metal/translation-50                       REJECT   10/15      
+pcb/blur-1                                 REJECT   11/15      
+pcb/blur-2                                 REJECT   2/15       
+pcb/blur-3                                 REJECT   0/15       
+pcb/gamma-2.5                              REJECT   14/15      
+pcb/noise-15                               PASS     15/15      
+pcb/noise-30                               REJECT   8/15       
+pcb/occlusion-0.1                          REJECT   13/15      
+pcb/occlusion-0.25                         REJECT   11/15      
+pcb/occlusion-0.4                          REJECT   7/15       
+pcb/scale-0.7                              REJECT   14/15      
+pcb/translation-49                         REJECT   11/15      
+pcb/translation-50                         REJECT   10/15      
+metal/gamma-1.8                            PASS     15/15      
+metal/noise-5                              PASS     15/15      
+metal/rotation-127.9                       PASS     15/15      
+metal/scale-0.7                            REJECT   14/15      
+pcb/brightness-60                          PASS     15/15      
+pcb/contrast-1.5                           PASS     15/15      
+pcb/gamma-0.5                              PASS     15/15      
+pcb/large-skew-0.8-1.2--0.4                PASS     15/15      
+pcb/ng-90                                  PASS     15/15      
+pcb/noise-5                                PASS     15/15      
+pcb/rotation-0                             PASS     15/15      
+pcb/rotation-217.3                         PASS     15/15      
+pcb/scale-1.4                              PASS     15/15      
+wrong-target-0                             UNKNOWN  -          no dense per-block support counts measured
+wrong-target-43.7                          UNKNOWN  -          no dense per-block support counts measured
+wrong-target-223.7                         UNKNOWN  -          no dense per-block support counts measured
+textured-impostor-0.88-1.12--0.12          REJECT   2/?        dense@0.80 support 2/16 fails even the looser stage-a2 bar (9 of 16); informative count not measured, so no 100% verdict is claimed
+textured-impostor-1.12-0.88-0.12           REJECT   4/?        dense@0.80 support 4/16 fails even the looser stage-a2 bar (9 of 16); informative count not measured, so no 100% verdict is claimed
+textured-impostor-0.8-1.2--0.4             REJECT   0/?        dense@0.80 support 0/16 fails even the looser stage-a2 bar (9 of 16); informative count not measured, so no 100% verdict is claimed
+textured-impostor-1.2-0.8-0.4              REJECT   4/?        dense@0.80 support 4/16 fails even the looser stage-a2 bar (9 of 16); informative count not measured, so no 100% verdict is claimed
+contradictory-texture-retries              REJECT   4/?        dense@0.80 support 4/16 fails even the looser stage-a2 bar (9 of 16); informative count not measured, so no 100% verdict is claimed
+
+== summary (this program, closest-to-ground-truth proxy) ==
+stage-b  (loc 0.80, out blocks counted)
+  kill cases still rejected: 25/25 (rescued by this rule: 0 [])
+  pass-sample still passing: 12/13 (rejected by proxy: 1/13, unknown: 0)
+  wrong-target rejected: 3/3 (unknown: 0)
+  textured-impostor rejected: 0/5 (unknown: 5)
+variant A (loc 0.80, out blocks NOT counted)
+  kill cases still rejected: 22/25 (rescued by this rule: 3 ['metal/translation-49', 'metal/translation-50', 'pcb/translation-49'])
+  pass-sample still passing: 12/13 (rejected by proxy: 1/13, unknown: 0)
+  wrong-target rejected: 3/3 (unknown: 0)
+  textured-impostor rejected: 0/5 (unknown: 5)
+variant B (loc 0.70, out blocks counted)
+  kill cases still rejected: 24/25 (rescued by this rule: 1 ['pcb/occlusion-0.1'])
+  pass-sample still passing: 12/13 (rejected by proxy: 1/13, unknown: 0)
+  wrong-target rejected: 3/3 (unknown: 0)
+  textured-impostor rejected: 0/5 (unknown: 5)
+variant C (dense 0.80, out blocks counted)
+  kill cases still rejected: 24/25 (rescued by this rule: 1 ['pcb/noise-15'])
+  pass-sample still passing: 12/13 (rejected by proxy: 1/13, unknown: 0)
+  wrong-target rejected: 0/3 (unknown: 3)
+  textured-impostor rejected: 5/5 (unknown: 0)
+
+== predicted (proxy) vs real run ==
+Real runs: 11-case dotnet test + 220-case generated matrix, calibration-a/b NOTES.md. Where they disagree, the real run wins.
+stage-b  (loc 0.80, out blocks counted)
+  proxy rescued: 0 []
+  real rescued:  0 [] (matrix 195/220, kills 25, 11-case 11/11)
+  proxy kills: 25/25; real kills: 25/25
+  proxy and real agree on which cases are rescued
+variant A (loc 0.80, out blocks NOT counted)
+  proxy rescued: 3 ['metal/translation-49', 'metal/translation-50', 'pcb/translation-49']
+  real rescued:  4 ['metal/translation-49', 'metal/translation-50', 'pcb/translation-49', 'pcb/translation-50'] (matrix 199/220, kills 21, 11-case 11/11)
+  proxy kills: 22/25; real kills: 21/25
+  real rescued but proxy missed: ['pcb/translation-50']
+variant B (loc 0.70, out blocks counted)
+  proxy rescued: 1 ['pcb/occlusion-0.1']
+  real rescued:  5 ['metal/noise-15', 'metal/noise-30', 'metal/occlusion-0.1', 'pcb/noise-15', 'pcb/occlusion-0.1'] (matrix 200/220, kills 20, 11-case 11/11)
+  proxy kills: 24/25; real kills: 20/25
+  real rescued but proxy missed: ['metal/noise-15', 'metal/noise-30', 'metal/occlusion-0.1', 'pcb/noise-15']
+  variant C (dense 0.80): NO real-run comparison — calibration-c was still running when this was written.
+
+== known mismatches and why (proxy vs real search) ==
+1. Variant A: proxy rescues 3, real run rescues 4. Extra case is
+   pcb/translation-50: proxy closest complete evaluation had angle
+   error 1.05 deg and worst fully-visible block 0.574 (9/10); the
+   variant A accepted pose (calibration-a/matrix/poses.csv) is
+   0.08 px / 0.04 deg from ground truth. The proxy sampled ONE pose
+   ~1 deg off; the search found a nearer pose where that block
+   clears 0.80. Single-pose proxy vs multi-pose search.
+2. Variant B: proxy rescues 1, real run rescues 5. Extra cases:
+   pcb/noise-15, metal/noise-15, metal/noise-30,
+   metal/occlusion-0.1 (proxy worst blocks 0.496-0.680, support
+   13-14/15 at 0.70). Their accepted poses
+   (calibration-b/matrix/poses.csv) are 0.13-0.64 px / 0.04-0.79 deg
+   from ground truth — the same neighbourhood as the proxy pose —
+   yet the worst block clears 0.70 there. Worst-block correlation
+   swings by 0.1-0.2+ under sub-pixel / sub-degree changes; the
+   proxy samples one pose, the search tries hundreds and accepts
+   any passing pose. The proxy therefore systematically
+   underestimates rescues. Largest swing is metal/noise-30
+   (0.496 -> >=0.70); which pose detail flips it is not recorded
+   in the available data — that would need the accepted pose's
+   per-block values.
+3. Pass-sample metal/scale-0.7: proxy says REJECT under every rule
+   (14/15, worst block 0.133), but stage-b, variant A and variant B
+   real runs all passed it (absent from every kill list). step1
+   notes the top-5 nearby evaluations include a 15/15 pose: a
+   known proxy artefact, not a real regression.
+4. Textured impostors at 0.70: NOT computable from cases.json
+   (only dense@0.80 counts were measured). Their 0.70 blocking
+   rests on the variant B 11-case real run (11/11), not on this
+   program. This program reports UNKNOWN for them under variant B.
+5. metal/occlusion-0.4: step1 notes its rejection is driven mainly
+   by the contradiction early-return, not by the support count.
+   This program models only the support-count gate, not the
+   contradiction gate.
+
+What this program does NOT verify: that the gate blocks real
+impostors in a live search; that any threshold is safe for unseen
+targets; speed; the full 220-case matrix; anything about the
+contradiction gate, blurred rescue paths, or the dense/localized
+correlation computation itself. See README.md.

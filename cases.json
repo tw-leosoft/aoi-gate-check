@@ -1,0 +1,1158 @@
+{
+  "meta": {
+    "title": "AOI support-block gate check — synthetic numeric cases only",
+    "date": "2026-11-20",
+    "contains_no_images": true,
+    "contains_no_source_code": true,
+    "contains_no_weights": true,
+    "contains_no_license_keys": true,
+    "sources": [
+      "calibration/calib-analysis.txt (step1 closest-to-ground-truth per-block measurement)",
+      "calibration/step1-NOTES.md (summary of the same measurement)",
+      "REPORT.md (WrongTarget 12/13 + worst block; textured impostor dense@0.80 counts; stage-b/A/B real-run totals)",
+      "calibration-a/NOTES.md (variant A real run: 199/220, 21 kills, 11/11)",
+      "calibration-b/NOTES.md (variant B real run: 200/220, 20 kills, 11/11)"
+    ],
+    "thresholds": [
+      "0.80",
+      "0.75",
+      "0.70",
+      "0.65",
+      "0.60"
+    ],
+    "threshold_note": "loc_support / dense_support keys are the support counts (blocks with correlation >= threshold) at each threshold, measured at the closest-to-ground-truth evaluation. Support counts are counted over informative blocks (15 per pcb/metal case).",
+    "honesty_note": "Cases with loc_support null have no localized per-block measurement; the program reports UNKNOWN for loc-based rules instead of inventing values. WrongTarget loc_support at thresholds other than 0.80 is exactly derived (see each case), not measured per block. Textured impostors have only a dense@0.80 count, so no 0.70 verdict is computable from this file."
+  },
+  "cases": [
+    {
+      "id": "metal/blur-2",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.337,
+      "worst_dense": 0.264,
+      "loc_support": {
+        "0.80": 13,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/blur-3",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.329,
+      "worst_dense": 0.211,
+      "loc_support": {
+        "0.80": 12,
+        "0.75": 12,
+        "0.70": 12,
+        "0.65": 13,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 12,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/ng-0",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.384,
+      "worst_dense": 0.388,
+      "loc_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/ng-217.3",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.4,
+      "worst_dense": 0.428,
+      "loc_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/ng-7.3",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.429,
+      "worst_dense": 0.437,
+      "loc_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/ng-90",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.381,
+      "worst_dense": 0.388,
+      "loc_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/noise-15",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.576,
+      "worst_dense": 0.565,
+      "loc_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/noise-30",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.496,
+      "worst_dense": 0.44,
+      "loc_support": {
+        "0.80": 13,
+        "0.75": 13,
+        "0.70": 13,
+        "0.65": 13,
+        "0.60": 13
+      },
+      "dense_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/occlusion-0.1",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.68,
+      "worst_dense": 0.723,
+      "loc_support": {
+        "0.80": 13,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 12,
+        "0.75": 14,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/occlusion-0.25",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.0,
+      "worst_dense": 0.0,
+      "loc_support": {
+        "0.80": 12,
+        "0.75": 12,
+        "0.70": 12,
+        "0.65": 12,
+        "0.60": 12
+      },
+      "dense_support": {
+        "0.80": 12,
+        "0.75": 12,
+        "0.70": 12,
+        "0.65": 12,
+        "0.60": 12
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/occlusion-0.4",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": -0.797,
+      "worst_dense": -0.843,
+      "loc_support": {
+        "0.80": 8,
+        "0.75": 8,
+        "0.70": 8,
+        "0.65": 8,
+        "0.60": 8
+      },
+      "dense_support": {
+        "0.80": 8,
+        "0.75": 8,
+        "0.70": 8,
+        "0.65": 8,
+        "0.60": 8
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/translation-49",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [
+        4,
+        8,
+        12
+      ],
+      "worst_loc": 0.956,
+      "worst_dense": 0.968,
+      "loc_support": {
+        "0.80": 12,
+        "0.75": 12,
+        "0.70": 12,
+        "0.65": 12,
+        "0.60": 12
+      },
+      "dense_support": {
+        "0.80": 12,
+        "0.75": 12,
+        "0.70": 12,
+        "0.65": 12,
+        "0.60": 12
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/translation-50",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [
+        1,
+        2,
+        4,
+        5,
+        8
+      ],
+      "worst_loc": 0.928,
+      "worst_dense": 0.937,
+      "loc_support": {
+        "0.80": 10,
+        "0.75": 10,
+        "0.70": 10,
+        "0.65": 10,
+        "0.60": 10
+      },
+      "dense_support": {
+        "0.80": 10,
+        "0.75": 10,
+        "0.70": 10,
+        "0.65": 10,
+        "0.60": 10
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/blur-1",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.521,
+      "worst_dense": 0.721,
+      "loc_support": {
+        "0.80": 11,
+        "0.75": 13,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 11,
+        "0.75": 14,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/blur-2",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.0,
+      "worst_dense": 0.45,
+      "loc_support": {
+        "0.80": 2,
+        "0.75": 3,
+        "0.70": 5,
+        "0.65": 9,
+        "0.60": 10
+      },
+      "dense_support": {
+        "0.80": 2,
+        "0.75": 4,
+        "0.70": 7,
+        "0.65": 8,
+        "0.60": 10
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/blur-3",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": -0.306,
+      "worst_dense": 0.0,
+      "loc_support": {
+        "0.80": 0,
+        "0.75": 1,
+        "0.70": 1,
+        "0.65": 2,
+        "0.60": 2
+      },
+      "dense_support": {
+        "0.80": 0,
+        "0.75": 0,
+        "0.70": 1,
+        "0.65": 1,
+        "0.60": 1
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/gamma-2.5",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.0,
+      "worst_dense": 0.0,
+      "loc_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/noise-15",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.631,
+      "worst_dense": 0.808,
+      "loc_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/noise-30",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.342,
+      "worst_dense": 0.555,
+      "loc_support": {
+        "0.80": 7,
+        "0.75": 10,
+        "0.70": 10,
+        "0.65": 12,
+        "0.60": 12
+      },
+      "dense_support": {
+        "0.80": 8,
+        "0.75": 10,
+        "0.70": 10,
+        "0.65": 12,
+        "0.60": 14
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/occlusion-0.1",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.771,
+      "worst_dense": 0.666,
+      "loc_support": {
+        "0.80": 12,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 13,
+        "0.75": 13,
+        "0.70": 13,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/occlusion-0.25",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.0,
+      "worst_dense": 0.0,
+      "loc_support": {
+        "0.80": 11,
+        "0.75": 11,
+        "0.70": 11,
+        "0.65": 11,
+        "0.60": 11
+      },
+      "dense_support": {
+        "0.80": 11,
+        "0.75": 11,
+        "0.70": 11,
+        "0.65": 11,
+        "0.60": 11
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/occlusion-0.4",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.0,
+      "worst_dense": 0.0,
+      "loc_support": {
+        "0.80": 6,
+        "0.75": 6,
+        "0.70": 7,
+        "0.65": 7,
+        "0.60": 7
+      },
+      "dense_support": {
+        "0.80": 7,
+        "0.75": 7,
+        "0.70": 7,
+        "0.65": 7,
+        "0.60": 7
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/scale-0.7",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.461,
+      "worst_dense": 0.696,
+      "loc_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/translation-49",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [
+        0,
+        4,
+        8,
+        12
+      ],
+      "worst_loc": 0.992,
+      "worst_dense": 0.991,
+      "loc_support": {
+        "0.80": 11,
+        "0.75": 11,
+        "0.70": 11,
+        "0.65": 11,
+        "0.60": 11
+      },
+      "dense_support": {
+        "0.80": 11,
+        "0.75": 11,
+        "0.70": 11,
+        "0.65": 11,
+        "0.60": 11
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "pcb/translation-50",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "worst_loc": 0.574,
+      "worst_dense": 0.804,
+      "loc_support": {
+        "0.80": 9,
+        "0.75": 9,
+        "0.70": 9,
+        "0.65": 9,
+        "0.60": 9
+      },
+      "dense_support": {
+        "0.80": 10,
+        "0.75": 10,
+        "0.70": 10,
+        "0.65": 10,
+        "0.60": 10
+      },
+      "kind": "kill",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "killed"
+    },
+    {
+      "id": "metal/gamma-1.8",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.966,
+      "worst_dense": 0.955,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "metal/noise-5",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.868,
+      "worst_dense": 0.881,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "metal/rotation-127.9",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.922,
+      "worst_dense": 0.924,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "metal/scale-0.7",
+      "template": "metal",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.133,
+      "worst_dense": 0.126,
+      "loc_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "dense_support": {
+        "0.80": 14,
+        "0.75": 14,
+        "0.70": 14,
+        "0.65": 14,
+        "0.60": 14
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "pcb/brightness-60",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.981,
+      "worst_dense": 0.984,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "pcb/contrast-1.5",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.965,
+      "worst_dense": 0.977,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "pcb/gamma-0.5",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.969,
+      "worst_dense": 0.969,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "pcb/large-skew-0.8-1.2--0.4",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.938,
+      "worst_dense": 0.969,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "pcb/ng-90",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.948,
+      "worst_dense": 0.947,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "pcb/noise-5",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.938,
+      "worst_dense": 0.97,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "pcb/rotation-0",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.979,
+      "worst_dense": 0.979,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "pcb/rotation-217.3",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.969,
+      "worst_dense": 0.985,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "pcb/scale-1.4",
+      "template": "pcb",
+      "informative": 15,
+      "partial_out_blocks": [],
+      "worst_loc": 0.996,
+      "worst_dense": 0.997,
+      "loc_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "dense_support": {
+        "0.80": 15,
+        "0.75": 15,
+        "0.70": 15,
+        "0.65": 15,
+        "0.60": 15
+      },
+      "kind": "pass-sample",
+      "source": "calibration/calib-analysis.txt closest-to-ground-truth evaluation; summarised in calibration/step1-NOTES.md",
+      "stage_b_real_outcome": "passed"
+    },
+    {
+      "id": "wrong-target-0",
+      "kind": "wrong-target",
+      "template": null,
+      "source": "REPORT.md (stage-b section): 12/13 supported, worst localized block value",
+      "stage_b_real_outcome": "rejected (0 matches in 11-case run)",
+      "informative": 13,
+      "partial_out_blocks": null,
+      "partial_out_note": "not measured; variant A assumes 0 and flags it",
+      "worst_loc": 0.597,
+      "worst_loc_full": 0.597176,
+      "worst_dense": null,
+      "loc_support": {
+        "0.80": 12,
+        "0.75": 12,
+        "0.70": 12,
+        "0.65": 12,
+        "0.60": 12
+      },
+      "loc_support_derived": true,
+      "loc_support_derivation": "12/13 at 0.80 means exactly one block below 0.80; that block is the worst block (0.583-0.597), which is below 0.60, so support is 12 at every listed threshold. No per-block values beyond the worst block were measured; none are invented here.",
+      "dense_support": null
+    },
+    {
+      "id": "wrong-target-43.7",
+      "kind": "wrong-target",
+      "template": null,
+      "source": "REPORT.md (stage-b section): 12/13 supported, worst localized block value",
+      "stage_b_real_outcome": "rejected (0 matches in 11-case run)",
+      "informative": 13,
+      "partial_out_blocks": null,
+      "partial_out_note": "not measured; variant A assumes 0 and flags it",
+      "worst_loc": 0.583,
+      "worst_loc_full": 0.582575,
+      "worst_dense": null,
+      "loc_support": {
+        "0.80": 12,
+        "0.75": 12,
+        "0.70": 12,
+        "0.65": 12,
+        "0.60": 12
+      },
+      "loc_support_derived": true,
+      "loc_support_derivation": "12/13 at 0.80 means exactly one block below 0.80; that block is the worst block (0.583-0.597), which is below 0.60, so support is 12 at every listed threshold. No per-block values beyond the worst block were measured; none are invented here.",
+      "dense_support": null
+    },
+    {
+      "id": "wrong-target-223.7",
+      "kind": "wrong-target",
+      "template": null,
+      "source": "REPORT.md (stage-b section): 12/13 supported, worst localized block value",
+      "stage_b_real_outcome": "rejected (0 matches in 11-case run)",
+      "informative": 13,
+      "partial_out_blocks": null,
+      "partial_out_note": "not measured; variant A assumes 0 and flags it",
+      "worst_loc": 0.596,
+      "worst_loc_full": 0.595698,
+      "worst_dense": null,
+      "loc_support": {
+        "0.80": 12,
+        "0.75": 12,
+        "0.70": 12,
+        "0.65": 12,
+        "0.60": 12
+      },
+      "loc_support_derived": true,
+      "loc_support_derivation": "12/13 at 0.80 means exactly one block below 0.80; that block is the worst block (0.583-0.597), which is below 0.60, so support is 12 at every listed threshold. No per-block values beyond the worst block were measured; none are invented here.",
+      "dense_support": null
+    },
+    {
+      "id": "textured-impostor-0.88-1.12--0.12",
+      "kind": "textured-impostor",
+      "template": null,
+      "source": "REPORT.md stage-a2: dense localized >=0.8 blocks 2/16",
+      "stage_b_real_outcome": "rejected (0 matches in 11-case run)",
+      "informative": null,
+      "informative_note": "not measured for these cases; step1's 15/16 applies to pcb/metal templates only. No informative count is invented.",
+      "partial_out_blocks": null,
+      "worst_loc": null,
+      "worst_dense": null,
+      "loc_support": null,
+      "dense_support_080_of_16": 2,
+      "dense_support": {
+        "0.80": 2
+      },
+      "total_blocks": 16
+    },
+    {
+      "id": "textured-impostor-1.12-0.88-0.12",
+      "kind": "textured-impostor",
+      "template": null,
+      "source": "REPORT.md stage-a2: dense localized >=0.8 blocks 4/16",
+      "stage_b_real_outcome": "rejected (0 matches in 11-case run)",
+      "informative": null,
+      "informative_note": "not measured for these cases; step1's 15/16 applies to pcb/metal templates only. No informative count is invented.",
+      "partial_out_blocks": null,
+      "worst_loc": null,
+      "worst_dense": null,
+      "loc_support": null,
+      "dense_support_080_of_16": 4,
+      "dense_support": {
+        "0.80": 4
+      },
+      "total_blocks": 16
+    },
+    {
+      "id": "textured-impostor-0.8-1.2--0.4",
+      "kind": "textured-impostor",
+      "template": null,
+      "source": "REPORT.md stage-a2: dense localized >=0.8 blocks 0/16",
+      "stage_b_real_outcome": "rejected (0 matches in 11-case run)",
+      "informative": null,
+      "informative_note": "not measured for these cases; step1's 15/16 applies to pcb/metal templates only. No informative count is invented.",
+      "partial_out_blocks": null,
+      "worst_loc": null,
+      "worst_dense": null,
+      "loc_support": null,
+      "dense_support_080_of_16": 0,
+      "dense_support": {
+        "0.80": 0
+      },
+      "total_blocks": 16
+    },
+    {
+      "id": "textured-impostor-1.2-0.8-0.4",
+      "kind": "textured-impostor",
+      "template": null,
+      "source": "REPORT.md stage-a2: dense localized >=0.8 blocks 4/16",
+      "stage_b_real_outcome": "rejected (0 matches in 11-case run)",
+      "informative": null,
+      "informative_note": "not measured for these cases; step1's 15/16 applies to pcb/metal templates only. No informative count is invented.",
+      "partial_out_blocks": null,
+      "worst_loc": null,
+      "worst_dense": null,
+      "loc_support": null,
+      "dense_support_080_of_16": 4,
+      "dense_support": {
+        "0.80": 4
+      },
+      "total_blocks": 16
+    },
+    {
+      "id": "contradictory-texture-retries",
+      "kind": "textured-impostor",
+      "template": null,
+      "source": "REPORT.md stage-a2: at MinimumVisibleRatio 0.25 (4 blocks of 16) contradictory and the second textured case would pass, i.e. contradictory has 4 blocks >=0.8; not directly tabulated",
+      "stage_b_real_outcome": "rejected (0 matches in 11-case run)",
+      "informative": null,
+      "informative_note": "not measured for these cases; step1's 15/16 applies to pcb/metal templates only. No informative count is invented.",
+      "partial_out_blocks": null,
+      "worst_loc": null,
+      "worst_dense": null,
+      "loc_support": null,
+      "dense_support_080_of_16": 4,
+      "dense_support": {
+        "0.80": 4
+      },
+      "total_blocks": 16
+    }
+  ]
+}
